@@ -1,18 +1,12 @@
-import sys,re
+import sys
 s = input().lower()
-p = ""
+p = []
 
 for i in sys.stdin.readlines():
-  p += i
-#  print(p)
+  p.append(i.lower().split())
 #print(p)
-ans = p.lower().count(s)
-bad = re.findall("[a-zA-Z0-9][^\n\s]+"+s +"|"+ s+"[a-zA-Z0-9][^\n\s]+",p)
-good = re.findall("[\W]+"+s+"|"+s+"[\W]+",p)
-all = re.findall(s,p)
-print("bad:",len(bad))
-print("good:",len(good))
-print("all",len(all))
-print("bad:",bad)
-print("good:",good)
-print("all",all)
+sum = 0
+for i in range(len(p)):
+#  print(p[i].count(s))
+  sum += p[i].count(s)
+print(sum)
