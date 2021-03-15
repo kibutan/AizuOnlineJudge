@@ -1,0 +1,27 @@
+def binary_search(S,T,n):
+    left = 0
+    right = n
+#    print("Search",T)
+    while left < right:
+        mid = int((left + right)/2)
+#        print("L:",left," R:",right," S[mid]:",S[mid])
+        if(int(S[mid]) == int(T)):
+#            print("S[mid] == T[i]",S[mid],T)
+            return True
+        elif(int(S[mid]) > int(T)):
+#            print("S[mid] > T[i]",S[mid],T)
+            right = mid
+        else:
+            left = mid + 1
+#        print("Else: left = ",left)
+    return False
+
+n = int(input())
+S = list(map(str,input().split()))
+q = int(input())
+T = list(map(str,input().split()))
+ans = 0
+
+for i in range(q):
+    if binary_search(S,T[i],n):ans += 1
+print(ans)
